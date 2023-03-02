@@ -1,0 +1,227 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--Rubik);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar{
+    background:rgba(0, 0, 0, 0.5);
+  
+}
+.navbar ul li{
+    font-size: 1.1rem;
+    font-weight: bold;
+
+}
+.navbar-dark .navbar-nav .nav-link{
+    color: white;
+    font-weight: bold;
+
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: white;
+    transition: all .5s ease;
+}
+.navbar-toggler{
+    border: solid black 2px; 
+    background-color: rgba(0, 0, 0, 0.5);
+  
+}
+.navbar  li a:hover{
+    box-shadow: 0 0 10px white;
+    
+}
+  
+/* Home section */
+
+#home{
+    background-color:  rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.bg-image{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right 35% top 30%;
+    background-attachment: fixed;
+    opacity: .5;
+   
+}
+
+@media (max-width: 991.98px) {
+    .bg-image{
+        background-position: left center;
+        background-attachment: scroll;       
+      } 
+  }
+.container{
+    padding-bottom: 10px;
+}
+.container .hero-text{
+    font-family: var(--Rubik); 
+    top: 30vh;
+  }
+
+.container .hero-text h1{ 
+    font-size: 3rem;
+    color: black;
+    font-weight: bold;
+}
+.input{
+    color: #6d2b45;
+    text-shadow: 2px 2px 4px white, 0 0 25px #6d2b45,0 0 5px white;
+}
+
+/*
+ <div class="container"> 
+    <div class="hero-text ">  
+        this one gets the styles
+    </div> 
+ </div> 
+ .container .hero-text {
+    color: #2ecc71;
+}
+ 
+<div class="container hero-text another"> </div> 
+.container.hero-text.another{
+    color: #2ecc71;
+}
+*/
+
+.container .hero-text h3{
+    font-size: 2rem;
+    font-weight: bold;
+    color:black;
+
+}
+
+@media (max-width: 480px) {
+    .container .hero-text{
+        background: rgba(255,255,255,0.4);
+        top: 40vh;
+    }
+
+  }
+   
+
+.headings{
+    font-weight: 100;
+    font-size: 3.5rem;
+    text-align: center;
+    margin: 40px 0px;
+}
+
+
+/* About Section */
+
+.section-1 {
+    padding-top: 10px;
+    padding-bottom: 50px;
+    background: linear-gradient(rgba(255, 255, 255, 1), #c09fb6);
+
+  }
+  
+  .section-1 .row .col-md-6 .pray img {
+    opacity: 0.8;
+    width: 80%;
+    border-radius: 0.2em;
+    border: solid black 1px;
+  }
+  
+  .section-1 .row .col-md-6:last-child {
+    position: relative;
+  }
+  
+  .section-1 .row .col-md-6 .panel {
+    position: absolute;
+    top: 7vmin;
+    left: -18vmin;
+    background:white;
+    border-radius: 3px;
+    text-align: left;
+    padding: 10px;
+    box-shadow: 0px 25px 42px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  @media (max-width:991.98px){
+    .section-1 .row .col-md-6 .panel {
+        position: relative;
+        left: 0;
+      } 
+  }
+  
+  .section-1 .row .col-md-6 .panel h1 {
+    font-weight: bold;
+    padding: 0.4em 0;
+    font-size: 2em;
+  }
+  
+  .section-1 .row .col-md-6 .panel p {
+    font-size: 0.9em;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+ 
+/* Portfolio Section */
+#portfolio{
+    
+    box-sizing: border-box;
+    padding: 10px;
+    background:linear-gradient(#c09fb6, rgba(0,0,0,0.5));
+    color: black;
+  
+}
+
+   
+.col-md-3 img, .col-md-4 img{
+    width: 260px;
+    height: 240px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display:block;
+}
+
+/* Contact Section */
+#contact{
+    box-sizing: border-box;
+    background:linear-gradient(rgba(0,0,0,0.5), #321329);
+    color: black;
+    padding: 10px;
+}
+.form-control{
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;;
+    margin: 20px 0px;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+#input{
+    width: 65%;
+}
+#msg{
+    width: 90%;
+}
+#send{
+    width: 18%;
+    color: black;
+    
+}
+#send:hover{
+    cursor: pointer;
+    box-shadow: 0 0 30px white;
+}
