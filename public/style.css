@@ -36,7 +36,7 @@ html {
   
 }
 .navbar  li a:hover{
-    box-shadow: 0 0 10px white;
+    border-bottom: 2px solid green;
     
 }
   
@@ -50,9 +50,9 @@ html {
 .bg-image{
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: right 35% top 30%;
+    background-position: right 35% top 10%;
     background-attachment: fixed;
-    opacity: .5;
+    opacity: .7;
    
 }
 
@@ -64,20 +64,26 @@ html {
   }
 .container{
     padding-bottom: 10px;
+   
+    
 }
 .container .hero-text{
     font-family: var(--Rubik); 
-    top: 30vh;
+    top: 20vh;
+    right: 102vh
+
   }
 
 .container .hero-text h1{ 
     font-size: 3rem;
     color: black;
     font-weight: bold;
+    
+    
 }
 .input{
-    color: #6d2b45;
-    text-shadow: 2px 2px 4px white, 0 0 25px #6d2b45,0 0 5px white;
+    color: green;
+    text-shadow: 2px 2px 4px white, 0 0 25px green,0 0 5px white;
 }
 
 /*
@@ -100,13 +106,17 @@ html {
     font-size: 2rem;
     font-weight: bold;
     color:black;
+    
 
 }
 
 @media (max-width: 480px) {
     .container .hero-text{
-        background: rgba(255,255,255,0.4);
+        background: rgb(252, 250, 250);
         top: 40vh;
+        left: 0vh
+     
+       
     }
 
   }
@@ -176,7 +186,7 @@ html {
     
     box-sizing: border-box;
     padding: 10px;
-    background:linear-gradient(#c09fb6, rgba(0,0,0,0.5));
+    background:linear-gradient(#c09fb6,#ebe8e8);
     color: black;
   
 }
@@ -195,7 +205,7 @@ html {
 /* Contact Section */
 #contact{
     box-sizing: border-box;
-    background:linear-gradient(rgba(0,0,0,0.5), #321329);
+    background:linear-gradient(#ebe8e8, rgba(126, 120, 120, 0.5));
     color: black;
     padding: 10px;
 }
@@ -223,5 +233,5 @@ html {
 }
 #send:hover{
     cursor: pointer;
-    box-shadow: 0 0 30px white;
+    box-shadow: 0 0 30px whitesmoke
 }
