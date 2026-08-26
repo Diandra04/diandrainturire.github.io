@@ -24,73 +24,9 @@
     <meta name="twitter:description" content="Computer Science student at Carleton University focused on AI and Machine Learning, seeking internship opportunities.">
     <meta name="twitter:image" content="https://diandrainturire.com/public/homepic.JPG">
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        dark: '#111111', 
-                        light: '#f8f8f8',
-                        accent: '#ff5c5c',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Playfair Display', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <style>
-        body {
-            background-color: #f8f8f8;
-            color: #111111;
-            overflow-x: hidden;
-            cursor: none; /* Hide default cursor to use custom orb */
-        }
-        
-        /* Creative Animation: Glowing Orb Follower */
-        #cursor-glow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,92,92,0.15) 0%, rgba(255,182,193,0.15) 50%, rgba(0,0,0,0) 70%);
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-            transition: width 0.3s, height 0.3s;
-            mix-blend-mode: multiply;
-        }
-
-        /* Small precise cursor */
-        #cursor-dot {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: #111111;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            z-index: 9999;
-            transition: width 0.2s, height 0.2s, background-color 0.2s;
-        }
-
-        a:hover ~ #cursor-dot, button:hover ~ #cursor-dot {
-            width: 24px;
-            height: 24px;
-            background-color: rgba(255, 92, 92, 0.8);
-        }
-    </style>
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body id="top" class="antialiased selection:bg-dark selection:text-light">
     
