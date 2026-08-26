@@ -309,39 +309,10 @@
         &copy; 2026 Diandra Inturire
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
     <script>
-        AOS.init({
-            once: true,
-            offset: 100,
-            duration: 1000,
-        });
-
-        // Creative Animation: Custom Cursor Logic
-        const cursorGlow = document.getElementById('cursor-glow');
-        const cursorDot = document.getElementById('cursor-dot');
-        
-        // Hide default cursor on interactive elements
-        document.querySelectorAll('a, button, input, textarea, .pill-nav').forEach(el => {
-            el.style.cursor = 'none';
-        });
-
-        document.addEventListener('mousemove', (e) => {
-            const x = e.clientX;
-            const y = e.clientY;
-            
-            // Move dot instantly
-            cursorDot.style.left = `${x}px`;
-            cursorDot.style.top = `${y}px`;
-            
-            // Move glow with a slight delay/smoothness by using requestAnimationFrame natively or just CSS transition
-            cursorGlow.style.left = `${x}px`;
-            cursorGlow.style.top = `${y}px`;
-        });
-        
-        // Ensure vanilla-tilt is initialized
-        VanillaTilt.init(document.querySelectorAll("[data-tilt]"));
+        // Core page behavior — runs first, has no dependency on the
+        // decorative libraries below, so it never breaks if a CDN is slow
+        // or blocked.
 
         // Strip any leftover # from the URL (e.g. from an old bookmark or cached page)
         if (window.location.hash === '#top' || window.location.hash === '#') {
@@ -404,6 +375,42 @@
                     contactStatus.classList.add('text-accent');
                 }
             });
+        }
+
+        // Creative Animation: Custom Cursor Logic — no external dependency,
+        // safe to run here regardless of the CDN scripts below.
+        const cursorGlow = document.getElementById('cursor-glow');
+        const cursorDot = document.getElementById('cursor-dot');
+
+        document.querySelectorAll('a, button, input, textarea, .pill-nav').forEach(el => {
+            el.style.cursor = 'none';
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            cursorDot.style.left = `${x}px`;
+            cursorDot.style.top = `${y}px`;
+            cursorGlow.style.left = `${x}px`;
+            cursorGlow.style.top = `${y}px`;
+        });
+    </script>
+
+    <!-- Decorative libraries — loaded last and guarded, so a slow/blocked
+         CDN never affects the core page behavior above. -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script>
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                once: true,
+                offset: 100,
+                duration: 1000,
+            });
+        }
+
+        if (typeof VanillaTilt !== 'undefined') {
+            VanillaTilt.init(document.querySelectorAll("[data-tilt]"));
         }
     </script>
 </body>
