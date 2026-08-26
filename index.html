@@ -343,6 +343,11 @@
         // Ensure vanilla-tilt is initialized
         VanillaTilt.init(document.querySelectorAll("[data-tilt]"));
 
+        // Strip any leftover # from the URL (e.g. from an old bookmark or cached page)
+        if (window.location.hash === '#top' || window.location.hash === '#') {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+
         // Scroll to top without leaving a # in the URL
         const logoLink = document.getElementById('logo-link');
         if (logoLink) {
