@@ -245,9 +245,35 @@
                 I am currently looking for an internship opportunity where I can apply my skills as a Computer Science student. 
             </p>
             
-            <a href="mailto:inturirediandra@gmail.com" class="font-display text-3xl border-b-2 border-dark pb-1 hover:text-accent hover:border-accent transition-all inline-block mt-4">
-                Send an Email
-            </a>
+            <form id="contact-form" class="max-w-md mx-auto mt-12 text-left" data-aos="fade-up">
+                <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+                <input type="checkbox" name="botcheck" class="hidden" title="Leave blank" aria-hidden="true" tabindex="-1" autocomplete="off">
+
+                <div class="mb-6">
+                    <label for="name" class="font-sans text-xs tracking-widest uppercase text-gray-500 block mb-1">Name</label>
+                    <input type="text" id="name" name="name" required
+                        class="w-full bg-transparent font-sans text-lg border-b-2 border-dark/20 focus:border-accent outline-none py-2 transition-colors">
+                </div>
+
+                <div class="mb-6">
+                    <label for="email" class="font-sans text-xs tracking-widest uppercase text-gray-500 block mb-1">Your Email</label>
+                    <input type="email" id="email" name="email" required
+                        class="w-full bg-transparent font-sans text-lg border-b-2 border-dark/20 focus:border-accent outline-none py-2 transition-colors">
+                </div>
+
+                <div class="mb-8">
+                    <label for="message" class="font-sans text-xs tracking-widest uppercase text-gray-500 block mb-1">Message</label>
+                    <textarea id="message" name="message" rows="4" required
+                        class="w-full bg-transparent font-sans text-lg border-b-2 border-dark/20 focus:border-accent outline-none py-2 transition-colors resize-none"></textarea>
+                </div>
+
+                <button type="submit" id="contact-submit"
+                    class="font-display text-3xl border-b-2 border-dark pb-1 hover:text-accent hover:border-accent transition-all inline-block">
+                    Send Message
+                </button>
+
+                <p id="contact-status" class="font-sans text-sm mt-4"></p>
+            </form>
 
             <div class="mt-24 flex justify-center gap-10">
                 <a href="https://github.com/Diandra04" target="_blank" rel="noopener noreferrer" class="font-sans text-sm tracking-widest uppercase font-medium hover:text-accent transition-colors">GitHub</a>
@@ -294,6 +320,45 @@
         
         // Ensure vanilla-tilt is initialized
         VanillaTilt.init(document.querySelectorAll("[data-tilt]"));
+
+        // Contact form submission (Web3Forms)
+        const contactForm = document.getElementById('contact-form');
+        const contactStatus = document.getElementById('contact-status');
+        const contactSubmit = document.getElementById('contact-submit');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                contactSubmit.textContent = 'Sending...';
+                contactStatus.textContent = '';
+
+                const formData = new FormData(contactForm);
+
+                try {
+                    const response = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: { 'Accept': 'application/json' },
+                        body: formData
+                    });
+                    const result = await response.json();
+
+                    if (result.success) {
+                        contactForm.reset();
+                        contactSubmit.textContent = 'Send Message';
+                        contactStatus.textContent = "Thanks — your message is on its way. I'll get back to you soon!";
+                        contactStatus.classList.remove('text-accent');
+                        contactStatus.classList.add('text-gray-600');
+                    } else {
+                        throw new Error(result.message || 'Submission failed');
+                    }
+                } catch (error) {
+                    contactSubmit.textContent = 'Send Message';
+                    contactStatus.textContent = 'Something went wrong. Please email me directly instead.';
+                    contactStatus.classList.remove('text-gray-600');
+                    contactStatus.classList.add('text-accent');
+                }
+            });
+        }
     </script>
 </body>
 </html>
